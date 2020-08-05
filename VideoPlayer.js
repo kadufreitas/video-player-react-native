@@ -1126,6 +1126,7 @@ export default class VideoPlayer extends Component {
         return null
     }
     renderSubtitle() {
+        const subtitle = this.showSubtitle()
         return (
             <View
                 style={
@@ -1134,9 +1135,9 @@ export default class VideoPlayer extends Component {
                         : styles.player.subtitleContainerPortrait
                 }
             >
-                <Text style={styles.player.subtitle}>
-                    {this.showSubtitle()}
-                </Text>
+                {subtitle && (
+                    <Text style={styles.player.subtitle}>{subtitle}</Text>
+                )}
             </View>
         )
     }
@@ -1199,10 +1200,11 @@ const styles = {
         subtitle: {
             color: 'white',
             textAlign: 'center',
-            textShadowColor: 'black',
-            textShadowOffset: { width: 1, height: 1 },
+            backgroundColor: 'black',
             paddingRight: 10,
             paddingLeft: 10,
+            paddingBottom: 5,
+            paddingTop: 5,
         },
         subtitleContainerPortrait: {
             position: 'absolute',
