@@ -1,0 +1,22 @@
+{
+    "name": "video-player",
+    "version": "1.0.0",
+    "description": "video player with subtitle support",
+    "main": "VideoPlayer.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "kadufreitas",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:kadufreitas/video-player-react-native.git"
+    },
+    "dependencies": {
+        "lodash": "^4.16.4"
+    },
+    "peerDependencies": {
+        "react-native": ">=0.46.0",
+        "react-native-video": "^2.0.0"
+    }
+}
