@@ -1200,7 +1200,12 @@ const styles = {
         subtitle: {
             color: 'white',
             textAlign: 'center',
-            backgroundColor: 'black',
+            textShadowColor: 'black',
+            textShadowRadius: 1,
+            textShadowOffset: {
+                width: 1,
+                height: 1,
+            },
             paddingRight: 10,
             paddingLeft: 10,
             paddingBottom: 5,

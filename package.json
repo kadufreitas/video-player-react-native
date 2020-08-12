@@ -1,6 +1,6 @@
 {
     "name": "video-player-react-native",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "video player with subtitle support",
     "main": "VideoPlayer.js",
     "scripts": {
