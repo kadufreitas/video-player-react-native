@@ -15,6 +15,7 @@ import {
     Text,
 } from 'react-native'
 import _ from 'lodash'
+let timeAux = 0
 
 export default class VideoPlayer extends Component {
     constructor(props) {
@@ -70,7 +71,6 @@ export default class VideoPlayer extends Component {
          */
         this.events = {
             onError: this.props.onError || this._onError.bind(this),
-            onEnd: this.props.onEnd || this._onEnd.bind(this),
             onScreenTouch: this._onScreenTouch.bind(this),
             onLoadStart: this._onLoadStart.bind(this),
             onProgress: this._onProgress.bind(this),
@@ -204,14 +204,6 @@ export default class VideoPlayer extends Component {
 
         this.setState(state)
     }
-
-    /**
-     * It is suggested that you override this
-     * command so your app knows what to do.
-     * Either close the video or go to a
-     * new page.
-     */
-    _onEnd() {}
 
     /**
      * Set the error state to true which then
@@ -780,6 +772,8 @@ export default class VideoPlayer extends Component {
     showSubtitle() {
         if (!this.props.subtitle) return null
         let currentTime = this.state.currentTimeInDeciSeconds
+        if (timeAux > currentTime) this.setState({ subtitleIndex: 0 })
+        timeAux = currentTime
         let subtitleIndex = this.state.subtitleIndex
         let subtitles = this.props.subtitle
         if (!subtitles[subtitleIndex]) return null
@@ -1169,7 +1163,8 @@ export default class VideoPlayer extends Component {
                         onProgress={this.events.onProgress}
                         onError={this.events.onError}
                         onLoad={this.events.onLoad}
-                        onEnd={this.events.onEnd}
+                        // onEnd={this.events.onEnd}
+                        // onSeek={this.events.onSeek}
                         style={[styles.player.video, this.styles.videoStyle]}
                         source={this.props.source}
                     />
